@@ -1,0 +1,37 @@
+# generated using pymatgen
+data_Sr2NbH8
+_symmetry_space_group_name_H-M   'P 1'
+_cell_length_a   3.80921600
+_cell_length_b   6.97479033
+_cell_length_c   9.71294696
+_cell_angle_alpha   104.37942321
+_cell_angle_beta   92.68630261
+_cell_angle_gamma   105.43369125
+_symmetry_Int_Tables_number   1
+_chemical_formula_structural   Sr2NbH8
+_chemical_formula_sum   'Sr2 Nb1 H8'
+_cell_volume   239.18998692
+_cell_formula_units_Z   1
+loop_
+ _symmetry_equiv_pos_site_id
+ _symmetry_equiv_pos_as_xyz
+  1  'x, y, z'
+loop_
+ _atom_site_type_symbol
+ _atom_site_label
+ _atom_site_symmetry_multiplicity
+ _atom_site_fract_x
+ _atom_site_fract_y
+ _atom_site_fract_z
+ _atom_site_occupancy
+  H  H0  1  0.80043300  0.47290100  0.06007000  1
+  H  H1  1  0.88178500  0.41458200  0.96765200  1
+  H  H2  1  0.49440900  0.01330400  0.93402100  1
+  Nb  Nb3  1  0.20067500  0.04478200  0.95556100  1
+  H  H4  1  0.07483900  0.97057100  0.06343900  1
+  H  H5  1  0.29176000  0.24003600  0.13961600  1
+  H  H6  1  0.52032100  0.38380000  0.19041300  1
+  H  H7  1  0.85641800  0.37779500  0.29137600  1
+  Sr  Sr8  1  0.67545100  0.18175700  0.19304300  1
+  H  H9  1  0.83981700  0.22016400  0.69063600  1
+  Sr  Sr10  1  0.51833300  0.78131800  0.46332600  1
