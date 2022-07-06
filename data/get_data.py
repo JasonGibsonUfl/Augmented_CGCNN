@@ -10,17 +10,44 @@ from sklearn.mixture import GaussianMixture
 np.random.seed(19)
 random.seed(19)
 
-dist = pkl.load(open('dists.pkl','rb'))
-dists = []
-for d in dist:
-    for v in d:
-        dists.append(v)
 
-gm = GaussianMixture(n_components=20, random_state=19).fit(np.array(dists).reshape(-1, 1))
-data = gm.sample(10**8)[0]
+def get_gmm():
+    """Fits a Gaussian mixture model to the distribution shown in Figure 2 of arXiv:2202.13947
+    Returns
+    -------
+    gm: sklearn.mixture.GaussianMixture
+      Gaussian mixture model that has been fit to the distribution shown in Figure 2 of arXiv:2202.13947
+    """
+    dist = pkl.load(open("dists.pkl", "rb"))
+    return GaussianMixture(n_components=20, random_state=19).fit(
+        np.array(dist).reshape(-1, 1)
+    )
 
-def perturb(struct):
+def perturb(struct, data):
+    """Perturbs the atomic cordinates of a structure
+    Parameters
+    ----------
+    struct: pymatgen.core.Structure
+      pymatgen structure to be perturbed
+    data: np.ndarray
+      numpy array of possible magnitudes of perturbation
+    Returns
+    -------
+    struct_per: pymatgen.core.Structure
+      Perturbed structure
+    """
+
     def get_rand_vec(dist):
+        """Returns vector used to pertrub structure
+        Parameters
+        ----------
+        dist: float
+          Magnitude of perturbation
+        Returns
+        -------
+        vector: np.ndarray
+          Vector whos direction was randomly sampled from random sphere and magnitude is defined by dist
+        """
         # deals with zero vectors.
         vector = np.random.randn(3)
         vnorm = np.linalg.norm(vector)
@@ -28,86 +55,68 @@ def perturb(struct):
 
     struct_per = struct.copy()
     for i in range(len(struct_per._sites)):
-        ind = np.random.randint(0,10**8)
+        ind = np.random.randint(0, 10 ** 8)
         dist = data[ind][0]
         struct_per.translate_sites([i], get_rand_vec(dist), frac_coords=False)
     return struct_per
 
-properties = ['final_structure','formation_energy_per_atom']
-criteria = {'formation_energy_per_atom': {'$exists': True}}
 
-cs = 500
-with MPRester() as mpr:
-    results = mpr.query(criteria, properties)
-
-np.random.shuffle(results)
-
-def filtered(ent):
-    return ent
-
-n_cores = 32
-
-parsed_filter = list(tqdm(mp.Pool(n_cores).imap(filtered, results),total = len(results)))
-print('DONE PARSE')
-results2 = []
-j = 0
-for i in parsed_filter:
-    if type(i) ==type({}):
-        i['ind'] = j
-        j+=1
-        results2.append(i)
-
-def per_all(ent):
+def write_structs(results, dir_name="train"):
+    """Write original and perturbed structure to a directory
+    Parameters
+    ----------
+    results: List or np.ndarray
+      query results from materials project
+    dir_name: String
+      Name of directory to write cif files to
+    Returns
+    -------
+    E: List
+      list in format to write id_prop.csv file
+    """
+    ind = 0
     E = []
-    struct = ent['final_structure']
-    ids = ent['ind']*11+1
-    struct.to(fmt='cif',filename=f'train/{ids}.cif')
-    E.append([ids,ent['formation_energy_per_atom']])
-    ids +=1
-    for j in range(10):
-        struct_per = perturb(struct)
-        struct_per.to(fmt='cif',filename=f'train/{ids}.cif')
-        E.append([ids,ent['formation_energy_per_atom']])
-        ids +=1
+    for entry in results:
+        ind += 1
+        struct = entry["final_structure"]
+        struct.to(fmt="cif", filename=f"{dir_name}/{ind}.cif")
+        E.append([ind, entry["formation_energy_per_atom"]])
+        ind += 1
+        struct_per = perturb(struct, data)
+        struct_per.to(fmt="cif", filename=f"{dir_name}/{ind}.cif")
+        E.append([ind, entry["formation_energy_per_atom"]])
     return E
 
-def per_all_t(ent):
-    E = []
-    struct = ent['final_structure']
-    ids = ent['ind']*11+1
-    struct.to(fmt='cif',filename=f'test/{ids}.cif')
-    E.append([ids,ent['formation_energy_per_atom']])
-    ids +=1
-    for j in range(10):
-        struct_per = perturb(struct)
-        struct_per.to(fmt='cif',filename=f'test/{ids}.cif')
-        E.append([ids,ent['formation_energy_per_atom']])
-        ids +=1
-    return E
 
-train, test = np.split(results2, [int(.8*len(results2))])
+def write_dir(E, dir_name="train"):
+    """Writes id_prop.csv file for training of CGCNN
+    Parameters
+    ----------
+    E: List
+      list with the first dimension coresponding to the structures index and the
+      second corresponding to the structures formation energy per atom
+    dir_name: String
+      Directory to write id_prop.csv to.
+    """
+    with open(f"{dir_name}/id_prop.csv", "w", newline="") as file:
+        wr = csv.writer(file)
+        wr.writerows(E)
 
-train_l = list(tqdm(mp.Pool(n_cores).imap(per_all,train),total = len(train)))
 
-E = []
-for i in train_l:
-    print(i)
-    for j in i:
-        E.append(j)
+if __name__ == "__main__":
+    gm = get_gmm()
+    data = gm.sample(10 ** 8)[0]
+    properties = ["final_structure", "formation_energy_per_atom"]
+    criteria = {"formation_energy_per_atom": {"$exists": True}}
+    criteria = {"formation_energy_per_atom": {"$lt": -3.6}}
 
-with open('train/id_prop.csv', 'w', newline='') as file:
-    wr = csv.writer(file)
-    wr.writerows(E)
+    with MPRester() as mpr:
+        results = mpr.query(criteria, properties)
+    np.random.shuffle(results)
 
-test_l = list(tqdm(mp.Pool(n_cores).imap(per_all_t,test),total = len(test)))
+    train, test = np.split(results, [int(0.8 * len(results))])
+    E = write_structs(train)
+    write_dir(E)
 
-E = []
-for i in test_l:
-    print(i)
-    for j in i:
-        E.append(j)
-
-with open('test/id_prop.csv', 'w', newline='') as file:
-    wr = csv.writer(file)
-    wr.writerows(E)
-
+    E = write_structs(test, "test")
+    write_dir(E, "test")
