@@ -63,7 +63,7 @@ def perturb(struct, data):
     return struct_per
 
 
-def write_structs(results, dir_name="train"):
+def write_structs(results, dir_name="train_data"):
     """Write original and perturbed structure to a directory
     Parameters
     ----------
@@ -90,7 +90,7 @@ def write_structs(results, dir_name="train"):
     return E
 
 
-def write_dir(E, dir_name="train"):
+def write_dir(E, dir_name="train_data"):
     """Writes id_prop.csv file for training of CGCNN
     Parameters
     ----------
@@ -110,7 +110,7 @@ if __name__ == "__main__":
     data = gm.sample(10 ** 8)[0]
     properties = ["final_structure", "formation_energy_per_atom"]
     criteria = {"formation_energy_per_atom": {"$exists": True}}
-    #criteria = {"formation_energy_per_atom": {"$lt": -3.6}}
+    criteria = {"formation_energy_per_atom": {"$lt": -3.6}}
 
     with MPRester() as mpr:
         results = mpr.query(criteria, properties)
@@ -120,5 +120,5 @@ if __name__ == "__main__":
     E = write_structs(train)
     write_dir(E)
 
-    E = write_structs(test, "test")
-    write_dir(E, "test")
+    E = write_structs(test, "validation_data")
+    write_dir(E, "validation_data")
