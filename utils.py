@@ -79,7 +79,7 @@ class MPCrystalGraphConvNet(CrystalGraphConvNet):
         return self.fc_out(seq2)
 
 
-def get_model(model_path ,n_h = 8, h_fea_len = 64, n_convs = 3, DO=False,org=True):
+def get_model(model_path ,n_h = 6, h_fea_len = 64, n_convs = 3, org=True):
     """
     Initializes normalizer and model from a pretrained model.
     
@@ -93,7 +93,8 @@ def get_model(model_path ,n_h = 8, h_fea_len = 64, n_convs = 3, DO=False,org=Tru
         Width of each layer
     n_convs: int
         Number of convolutional layers
-        
+    org: Bool
+      if true the CGCNN model is loaded if False the CGCNN-HD model is loaded    
     Returns
     -------
     normalizer: 
@@ -101,15 +102,10 @@ def get_model(model_path ,n_h = 8, h_fea_len = 64, n_convs = 3, DO=False,org=Tru
     model: 
         pre-trained model
     """
-    if DO:
-        model = CrystalGraphConvNetDO(92, 41, n_conv=n_convs, h_fea_len=h_fea_len, n_h=n_h,org=org)
-    else:
-        model = CrystalGraphConvNet(92, 41, n_conv=n_convs, h_fea_len=h_fea_len, n_h=n_h,org=org)
+    model = CrystalGraphConvNetDO(92, 41, n_conv=n_convs, h_fea_len=h_fea_len, n_h=n_h,org=org)
     model.load_state_dict(torch.load(model_path, map_location="cpu")["state_dict"], strict=False)
 
     state_dict = torch.load(model_path, map_location="cpu")
-    #print(state_dict.keys())
-    print(f'epochs = {state_dict["epoch"]}\t mae = {state_dict["best_mae_error"]}')
     normalizer = Normalizer(torch.tensor(0.25))
     m = state_dict["normalizer"]["mean"]
     std = state_dict["normalizer"]["std"]
@@ -138,8 +134,8 @@ def eval_predictions(x, y):
     r2: float
         r2 value of prediction/target
     """
-    mae = mean_absolute_error(y, x)
-    rmse = np.sqrt(mean_squared_error(y, x))
+    mae = mean_absolute_error(y, x)*1000
+    rmse = np.sqrt(mean_squared_error(y, x))*1000
     r2 = r2_score(y, x)
     return mae, rmse, r2
 
