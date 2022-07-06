@@ -5,8 +5,8 @@ import numpy as np
 import pandas as pd
 import matplotlib.pyplot as plt
 
-from model import CrystalGraphConvNet, ConvLayer,CrystalGraphConvNetDO
-from data import *
+from cgcnn.model import CrystalGraphConvNet, ConvLayer,CrystalGraphConvNetDO
+from cgcnn.data import *
 
 import torch
 from torch.autograd import Variable

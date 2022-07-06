@@ -1,3 +1,6 @@
+"""
+Augments the entire materialsproject database
+"""
 from pymatgen.ext.matproj import MPRester
 import csv
 import numpy as np
@@ -48,7 +51,6 @@ def perturb(struct, data):
         vector: np.ndarray
           Vector whos direction was randomly sampled from random sphere and magnitude is defined by dist
         """
-        # deals with zero vectors.
         vector = np.random.randn(3)
         vnorm = np.linalg.norm(vector)
         return vector / vnorm * dist if vnorm != 0 else get_rand_vec(dist)
@@ -108,7 +110,7 @@ if __name__ == "__main__":
     data = gm.sample(10 ** 8)[0]
     properties = ["final_structure", "formation_energy_per_atom"]
     criteria = {"formation_energy_per_atom": {"$exists": True}}
-    criteria = {"formation_energy_per_atom": {"$lt": -3.6}}
+    #criteria = {"formation_energy_per_atom": {"$lt": -3.6}}
 
     with MPRester() as mpr:
         results = mpr.query(criteria, properties)

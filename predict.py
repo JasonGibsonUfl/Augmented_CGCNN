@@ -6,7 +6,7 @@ import warnings
 
 warnings.filterwarnings("ignore")
 import numpy as np
-from data import CIFData, collate_pool, DataLoader
+from cgcnn.data import CIFData, collate_pool, DataLoader
 import csv
 import utils
 
