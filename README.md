@@ -12,15 +12,21 @@ The software used to train the [CGCNN](https://github.com/txie-93/cgcnn) and the
 ## Files and directories
 `pre-trained/` contains the files needed to load all models used in the study.
 
+
 `test_data/unrelaxed/` and `test_data/relaxed/` contain Test-unrelaxed and Test-relaxed. In each directory the `atom_init.json` file contains embedding information for the CGCNN. The `id_prop.csv` is the file needed for the CGCNN to load the data. The first column is the structure id the second column is the relaxed formation energy per atom of the structure.
+
 
 `cgcnn/data.py` and `cgcnn/model.py` contain dataloaders and the CGCNN, respectively.
 
+
 `cgcnn/model_train.py` contains the class `MPCrystalGraphConvNet` which places each convolutional layer on a seperate GPU. This helps alleviate memory issues when a batch contains multiple structures with more than 64 atoms.
+
 
 `augment_mp.py` queries MaterialsProject and writes the training and validation datasets.
 
+
 `dists.pkl` contains the ditribution used to perturb the structures.
+
 
 `predict.py` predicts the formation energy per atom of both Test-relaxed and Test-unrelaxed using all four models from the study.
 
