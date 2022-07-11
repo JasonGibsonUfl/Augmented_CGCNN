@@ -106,13 +106,14 @@ def write_dir(E, dir_name="train_data"):
 
 
 if __name__ == "__main__":
+    MP_API_KEY = None
     gm = get_gmm()
     data = gm.sample(10 ** 8)[0]
     properties = ["final_structure", "formation_energy_per_atom"]
     criteria = {"formation_energy_per_atom": {"$exists": True}}
     criteria = {"formation_energy_per_atom": {"$lt": -3.6}}
 
-    with MPRester() as mpr:
+    with MPRester(MP_API_KEY) as mpr:
         results = mpr.query(criteria, properties)
     np.random.shuffle(results)
 
