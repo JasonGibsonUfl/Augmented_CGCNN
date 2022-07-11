@@ -50,7 +50,7 @@ conda create -n augmented_cgcnn python=3 scikit-learn pytorch torchvision pymatg
 This creates a conda environment for running CGCNN and perturbing structures. Activate the environment by:
 
 ```bash
-source activate augmented_cgcnn
+conda activate augmented_cgcnn
 ```
 ## How to augment data from [MaterialsProject](https://materialsproject.org)
 to generate the augment training and validation set; add your materialsproject API key to `augment_mp.py` and run:
