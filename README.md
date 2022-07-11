@@ -10,7 +10,7 @@ The following paper describes the augmentation technique:
 The software used to train the [CGCNN](https://github.com/txie-93/cgcnn) and the [CGCNN-HD](https://github.com/kaist-amsg/CGCNN-HD) are well documented in the respective respitory.
 
 ## How to augment data from [MaterialsProject](https://materialsproject.org)
-to generate the augment training and validation set add your materialsproject API key to `augment_mp.py` and run:
+to generate the augment training and validation set; add your materialsproject API key to `augment_mp.py` and run:
 
 ```bash
 python augment_mp.py
