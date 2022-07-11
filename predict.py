@@ -91,7 +91,7 @@ def run_test(name, org,relaxed_loader,unrelaxed_loader, write_relaxed=False, wri
     mae_r, rmse_r, r2_r = utils.eval_predictions(target_relaxed, pred_relaxed)
     mae, rmse, r2 = utils.eval_predictions(target_unrelaxed, pred_unrelaxed)
     print(
-        f"{name}: RMSE[unrelaxed/relaxed] = {rmse:.2f}/{rmse_r:.2f},\t MAE = {mae:.2f}/{mae_r:.2f},\t r2 = {r2:.4f}/{r2_r:.4f}"
+        f"{name}: RMSE[unrelaxed/relaxed] \t = {rmse:.2f}/{rmse_r:.2f},\t MAE = {mae:.2f}/{mae_r:.2f},\t r2 = {r2:.4f}/{r2_r:.4f}"
     )
     ### writes prediction to csv file ###
     if write_relaxed:
