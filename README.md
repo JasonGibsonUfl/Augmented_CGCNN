@@ -60,7 +60,7 @@ mkdir train_data
 mkdir validation_data
 python augment_mp.py
 ```
-This will perturb every structure in the MP database and write 80% of the data (which consists of one perturbed structure for every relaxed structure) to train_data and 20% to validation_data.
+This will perturb every structure in the MP database and write 80% of the data (which consists of one perturbed structure for every relaxed structure) to `train_data/` and 20% to `validation_data/`.
 
 ## How to make a prediction using the pretrained models
 to make predictions on Test-relaxed and Test-unrelaxed, run:
