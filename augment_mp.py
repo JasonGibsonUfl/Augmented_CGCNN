@@ -111,7 +111,7 @@ if __name__ == "__main__":
     data = gm.sample(10 ** 8)[0]
     properties = ["final_structure", "formation_energy_per_atom"]
     criteria = {"formation_energy_per_atom": {"$exists": True}}
-    criteria = {"formation_energy_per_atom": {"$lt": -3.6}}
+    #criteria = {"formation_energy_per_atom": {"$lt": -3.6}}
 
     with MPRester(MP_API_KEY) as mpr:
         results = mpr.query(criteria, properties)
