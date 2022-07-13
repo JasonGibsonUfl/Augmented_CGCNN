@@ -53,7 +53,7 @@ This creates a conda environment for running CGCNN and perturbing structures. Ac
 conda activate augmented_cgcnn
 ```
 ## How to augment data from [MaterialsProject](https://materialsproject.org)
-to generate the augment training and validation set; add your materialsproject API key to `augment_mp.py` and run:
+to generate the augment training and validation set; add your [materialsproject API](https://legacy.materialsproject.org/open) key to `augment_mp.py` and run:
 
 ```bash
 mkdir train_data
