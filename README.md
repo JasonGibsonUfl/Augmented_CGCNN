@@ -10,16 +10,17 @@ The following paper describes the augmentation technique:
 The software used to train the [CGCNN](https://github.com/txie-93/cgcnn) and the [CGCNN-HD](https://github.com/kaist-amsg/CGCNN-HD) are well documented in the respective respitory.
 
 ## Files and directories
-`pre-trained/` contains the files needed to load all models used in the study.
-
-
-`test_data/unrelaxed/` and `test_data/relaxed/` contain Test-unrelaxed and Test-relaxed. In each directory the `atom_init.json` file contains embedding information for the CGCNN. The `id_prop.csv` is the file needed for the CGCNN to load the data. The first column is the structure id the second column is the relaxed formation energy per atom of the structure.
-
-
 `cgcnn/data.py` and `cgcnn/model.py` contain dataloaders and the CGCNN, respectively.
 
 
 `cgcnn/model_train.py` contains the class `MPCrystalGraphConvNet` which places each convolutional layer on a seperate GPU. This helps alleviate memory issues when a batch contains multiple structures with more than 64 atoms.
+
+
+`pre-trained/` contains the files needed to load all models used in the study.
+
+`raw_dft/` contains raw DFT files. POTCAR, PROCAR, OUTCAR and vasprun.xml files have been removed.
+
+`test_data/unrelaxed/` and `test_data/relaxed/` contain Test-unrelaxed and Test-relaxed. In each directory the `atom_init.json` file contains embedding information for the CGCNN. The `id_prop.csv` is the file needed for the CGCNN to load the data. The first column is the structure id the second column is the relaxed formation energy per atom of the structure.
 
 
 `augment_mp.py` queries MaterialsProject and writes the training and validation datasets.
