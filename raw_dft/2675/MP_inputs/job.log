@@ -1,0 +1,199 @@
+ running on   16 total cores
+ distrk:  each k-point on   16 cores,    1 groups
+ distr:  one band on    1 cores,   16 groups
+ using from now: INCAR     
+ vasp.5.4.4.18Apr17-6-g9f103f2a35 (build Nov 01 2019 12:17:22) complex          
+  
+ POSCAR found type information on POSCAR  Sr Nb H 
+ POSCAR found :  3 types and      12 ions
+
+ ----------------------------------------------------------------------------- 
+|                                                                             |
+|           W    W    AA    RRRRR   N    N  II  N    N   GGGG   !!!           |
+|           W    W   A  A   R    R  NN   N  II  NN   N  G    G  !!!           |
+|           W    W  A    A  R    R  N N  N  II  N N  N  G       !!!           |
+|           W WW W  AAAAAA  RRRRR   N  N N  II  N  N N  G  GGG   !            |
+|           WW  WW  A    A  R   R   N   NN  II  N   NN  G    G                |
+|           W    W  A    A  R    R  N    N  II  N    N   GGGG   !!!           |
+|                                                                             |
+|      For optimal performance we recommend to set                            |
+|        NCORE= 4 - approx SQRT( number of cores)                             |
+|      NCORE specifies how many cores store one orbital (NPAR=cpu/NCORE).     |
+|      This setting can  greatly improve the performance of VASP for DFT.     |
+|      The default,   NCORE=1            might be grossly inefficient         |
+|      on modern multi-core architectures or massively parallel machines.     |
+|      Do your own testing !!!!                                               |
+|      Unfortunately you need to use the default for GW and RPA calculations. |
+|      (for HF NCORE is supported but not extensively tested yet)             |
+|                                                                             |
+ ----------------------------------------------------------------------------- 
+
+ LDA part: xc-table for Pade appr. of Perdew
+
+
+ VERY BAD NEWS! internal error in subroutine IBZKPT:
+ Reciprocal lattice and k-lattice belong to different class of lattices. Often results are still useful...     168
+
+
+ VERY BAD NEWS! internal error in subroutine IBZKPT:
+ Reciprocal lattice and k-lattice belong to different class of lattices. Often results are still useful...     168
+
+
+ VERY BAD NEWS! internal error in subroutine IBZKPT:
+ Reciprocal lattice and k-lattice belong to different class of lattices. Often results are still useful...     168
+
+
+ VERY BAD NEWS! internal error in subroutine IBZKPT:
+ Reciprocal lattice and k-lattice belong to different class of lattices. Often results are still useful...     168
+
+
+ VERY BAD NEWS! internal error in subroutine IBZKPT:
+ Reciprocal lattice and k-lattice belong to different class of lattices. Often results are still useful...     168
+
+
+ VERY BAD NEWS! internal error in subroutine IBZKPT:
+ Reciprocal lattice and k-lattice belong to different class of lattices. Often results are still useful...     168
+
+
+ VERY BAD NEWS! internal error in subroutine IBZKPT:
+ Reciprocal lattice and k-lattice belong to different class of lattices. Often results are still useful...     168
+
+
+ VERY BAD NEWS! internal error in subroutine IBZKPT:
+ Reciprocal lattice and k-lattice belong to different class of lattices. Often results are still useful...     168
+
+
+ VERY BAD NEWS! internal error in subroutine IBZKPT:
+ Reciprocal lattice and k-lattice belong to different class of lattices. Often results are still useful...     168
+
+
+ VERY BAD NEWS! internal error in subroutine IBZKPT:
+ Reciprocal lattice and k-lattice belong to different class of lattices. Often results are still useful...     168
+
+
+ VERY BAD NEWS! internal error in subroutine IBZKPT:
+ Reciprocal lattice and k-lattice belong to different class of lattices. Often results are still useful...     168
+
+
+ VERY BAD NEWS! internal error in subroutine IBZKPT:
+ Reciprocal lattice and k-lattice belong to different class of lattices. Often results are still useful...     168
+
+
+ VERY BAD NEWS! internal error in subroutine IBZKPT:
+ Reciprocal lattice and k-lattice belong to different class of lattices. Often results are still useful...     168
+
+
+ VERY BAD NEWS! internal error in subroutine IBZKPT:
+ Reciprocal lattice and k-lattice belong to different class of lattices. Often results are still useful...     168
+
+
+ VERY BAD NEWS! internal error in subroutine IBZKPT:
+ Reciprocal lattice and k-lattice belong to different class of lattices. Often results are still useful...     168
+
+
+ VERY BAD NEWS! internal error in subroutine IBZKPT:
+ Reciprocal lattice and k-lattice belong to different class of lattices. Often results are still useful...     168
+ POSCAR, INCAR and KPOINTS ok, starting setup
+ FFT: planning ...
+ WAVECAR not read
+ entering main loop
+       N       E                     dE             d eps       ncg     rms          rms(c)
+DAV:   1     0.222900233435E+03    0.22290E+03   -0.19034E+04  4096   0.111E+03
+DAV:   2    -0.331860748408E+02   -0.25609E+03   -0.25002E+03  4912   0.304E+02
+DAV:   3    -0.485751570142E+02   -0.15389E+02   -0.15340E+02  7984   0.616E+01
+DAV:   4    -0.488532326804E+02   -0.27808E+00   -0.27798E+00  5056   0.742E+00
+DAV:   5    -0.488685806420E+02   -0.15348E-01   -0.15347E-01  6912   0.138E+00    0.408E+01
+RMM:   6    -0.496108767725E+02   -0.74230E+00   -0.58126E+00  4604   0.100E+01    0.198E+01
+RMM:   7    -0.486789392150E+02    0.93194E+00   -0.22260E+00  4893   0.651E+00    0.106E+01
+RMM:   8    -0.486768975433E+02    0.20417E-02   -0.49136E-01  4636   0.412E+00    0.503E+00
+RMM:   9    -0.486956749518E+02   -0.18777E-01   -0.81161E-02  4579   0.201E+00    0.250E+00
+RMM:  10    -0.487049872691E+02   -0.93123E-02   -0.22657E-02  4351   0.914E-01    0.107E+00
+RMM:  11    -0.487095136412E+02   -0.45264E-02   -0.12093E-02  4518   0.654E-01    0.302E-01
+RMM:  12    -0.487104880586E+02   -0.97442E-03   -0.22384E-03  3464   0.268E-01    0.152E-01
+RMM:  13    -0.487114509613E+02   -0.96290E-03   -0.12019E-03  3298   0.185E-01    0.835E-02
+RMM:  14    -0.487121383997E+02   -0.68744E-03   -0.11259E-03  3198   0.178E-01    0.638E-02
+RMM:  15    -0.487121813074E+02   -0.42908E-04   -0.28153E-04  2865   0.147E-01
+   1 F= -.48712181E+02 E0= -.48712181E+02  d E =-.487122E+02  mag=    -0.0000
+ curvature:   0.00 expect dE= 0.000E+00 dE for cont linesearch  0.000E+00
+ trial: gam= 0.00000 g(F)=  0.187E-02 g(S)=  0.564E-01 ort = 0.000E+00 (trialstep = 0.100E+01)
+ search vector abs. value=  0.583E-01
+ bond charge predicted
+       N       E                     dE             d eps       ncg     rms          rms(c)
+DAV:   1    -0.489035919433E+02   -0.19145E+00   -0.35698E+00  6112   0.122E+01    0.440E+00
+RMM:   2    -0.487866228367E+02    0.11697E+00   -0.47033E-01  4586   0.398E+00    0.105E+00
+RMM:   3    -0.487565039958E+02    0.30119E-01   -0.46851E-02  4582   0.192E+00    0.964E-01
+RMM:   4    -0.487499959461E+02    0.65080E-02   -0.17593E-02  4639   0.856E-01    0.917E-01
+RMM:   5    -0.487498522009E+02    0.14375E-03   -0.78476E-03  4479   0.882E-01    0.394E-01
+RMM:   6    -0.487502270631E+02   -0.37486E-03   -0.68103E-03  4250   0.340E-01    0.104E-01
+RMM:   7    -0.487502924721E+02   -0.65409E-04   -0.88382E-04  3117   0.352E-01
+   2 F= -.48750292E+02 E0= -.48750292E+02  d E =-.381112E-01  mag=    -0.0000
+ trial-energy change:   -0.038111  1 .order   -0.039633   -0.058306   -0.020960
+ step:   1.5612(harm=  1.5612)  dis= 0.00736  next Energy=   -48.757696 (dE=-0.455E-01)
+ bond charge predicted
+       N       E                     dE             d eps       ncg     rms          rms(c)
+DAV:   1    -0.488008060559E+02   -0.50579E-01   -0.11007E+00  5184   0.676E+00    0.235E+00
+RMM:   2    -0.487651464453E+02    0.35660E-01   -0.13935E-01  4590   0.220E+00    0.556E-01
+RMM:   3    -0.487565901183E+02    0.85563E-02   -0.13566E-02  4414   0.104E+00    0.521E-01
+RMM:   4    -0.487548396644E+02    0.17505E-02   -0.54700E-03  3640   0.524E-01    0.473E-01
+RMM:   5    -0.487549783794E+02   -0.13871E-03   -0.27312E-03  3844   0.573E-01
+   3 F= -.48754978E+02 E0= -.48754978E+02  d E =-.427971E-01  mag=     0.0000
+ curvature:  -0.78 expect dE=-0.145E-01 dE for cont linesearch -0.722E-03
+ trial: gam= 0.19194 g(F)=  0.176E-01 g(S)=  0.974E-03 ort = 0.734E-02 (trialstep = 0.111E+01)
+ search vector abs. value=  0.235E-01
+ bond charge predicted
+       N       E                     dE             d eps       ncg     rms          rms(c)
+DAV:   1    -0.487883459451E+02   -0.33506E-01   -0.15294E+00  5152   0.914E+00    0.134E+00
+RMM:   2    -0.487713486857E+02    0.16997E-01   -0.13398E-01  4554   0.192E+00    0.602E-01
+RMM:   3    -0.487663240900E+02    0.50246E-02   -0.84034E-03  4575   0.786E-01    0.461E-01
+RMM:   4    -0.487657745698E+02    0.54952E-03   -0.51137E-03  3899   0.405E-01
+   4 F= -.48765775E+02 E0= -.48765775E+02  d E =-.107962E-01  mag=    -0.0000
+ trial-energy change:   -0.010796  1 .order   -0.013529   -0.022185   -0.004874
+ step:   1.4254(harm=  1.4254)  dis= 0.01463  next Energy=   -48.769194 (dE=-0.142E-01)
+ bond charge predicted
+       N       E                     dE             d eps       ncg     rms          rms(c)
+DAV:   1    -0.487679781671E+02   -0.16541E-02   -0.11995E-01  7024   0.268E+00    0.358E-01
+RMM:   2    -0.487665527523E+02    0.14254E-02   -0.10913E-02  4522   0.551E-01    0.290E-01
+RMM:   3    -0.487661754450E+02    0.37731E-03   -0.64299E-04  2829   0.248E-01
+   5 F= -.48766175E+02 E0= -.48766175E+02  d E =-.111971E-01  mag=    -0.0000
+ curvature:  -0.84 expect dE=-0.192E-01 dE for cont linesearch -0.763E-05
+ trial: gam= 1.28922 g(F)=  0.226E-01 g(S)=  0.297E-03 ort = 0.462E-03 (trialstep = 0.437E+00)
+ search vector abs. value=  0.631E-01
+ bond charge predicted
+       N       E                     dE             d eps       ncg     rms          rms(c)
+DAV:   1    -0.487820382035E+02   -0.15485E-01   -0.35148E-01  4992   0.369E+00    0.691E-01
+RMM:   2    -0.487746984706E+02    0.73397E-02   -0.34510E-02  4533   0.983E-01    0.484E-01
+RMM:   3    -0.487732198287E+02    0.14786E-02   -0.18876E-03  3209   0.422E-01    0.275E-01
+RMM:   4    -0.487731095864E+02    0.11024E-03   -0.31038E-03  3771   0.327E-01
+   6 F= -.48773110E+02 E0= -.48773110E+02  d E =-.693414E-02  mag=     0.0000
+ trial-energy change:   -0.006934  1 .order   -0.007911   -0.010269   -0.005553
+ step:   0.9522(harm=  0.9522)  dis= 0.01248  next Energy=   -48.777355 (dE=-0.112E-01)
+ bond charge predicted
+       N       E                     dE             d eps       ncg     rms          rms(c)
+DAV:   1    -0.487894147154E+02   -0.16195E-01   -0.50404E-01  5120   0.444E+00    0.780E-01
+RMM:   2    -0.487792503720E+02    0.10164E-01   -0.46432E-02  4538   0.114E+00    0.565E-01
+RMM:   3    -0.487772358892E+02    0.20145E-02   -0.26441E-03  3487   0.468E-01    0.408E-01
+RMM:   4    -0.487770114469E+02    0.22444E-03   -0.33121E-03  3759   0.336E-01
+   7 F= -.48777011E+02 E0= -.48777011E+02  d E =-.108360E-01  mag=    -0.0000
+ curvature:  -1.28 expect dE=-0.562E-02 dE for cont linesearch -0.441E-03
+ trial: gam=-0.14505 g(F)=  0.375E-02 g(S)=  0.637E-03 ort = 0.466E-02 (trialstep = 0.540E+00)
+ search vector abs. value=  0.437E-02
+ bond charge predicted
+       N       E                     dE             d eps       ncg     rms          rms(c)
+DAV:   1    -0.487803364584E+02   -0.31006E-02   -0.98455E-02  7040   0.240E+00    0.508E-01
+RMM:   2    -0.487793601674E+02    0.97629E-03   -0.81305E-03  4034   0.479E-01    0.161E-01
+RMM:   3    -0.487790284640E+02    0.33170E-03   -0.43790E-04  2757   0.180E-01
+   8 F= -.48779028E+02 E0= -.48779028E+02  d E =-.201702E-02  mag=    -0.0000
+ ZBRENT: can't locate minimum, use default step
+ trial-energy change:   -0.002017  1 .order   -0.001806   -0.002008   -0.001604
+ step:   2.1612(harm=  2.6889)  dis= 0.01217  next Energy=   -48.782007 (dE=-0.500E-02)
+ bond charge predicted
+       N       E                     dE             d eps       ncg     rms          rms(c)
+DAV:   1    -0.487872147496E+02   -0.78546E-02   -0.82120E-01  5120   0.689E+00    0.110E+00
+RMM:   2    -0.487796802528E+02    0.75345E-02   -0.68639E-02  4572   0.140E+00    0.346E-01
+RMM:   3    -0.487771326977E+02    0.25476E-02   -0.46921E-03  4335   0.608E-01    0.274E-01
+RMM:   4    -0.487768790929E+02    0.25360E-03   -0.42199E-03  3784   0.376E-01
+   9 F= -.48776879E+02 E0= -.48776879E+02  d E =0.132354E-03  mag=     0.0000
+ curvature:  -1.49 expect dE=-0.264E-01 dE for cont linesearch -0.492E-02
+ trial: gam= 0.00000 g(F)=  0.176E-01 g(S)=  0.211E-03 ort =-0.381E-02 (trialstep = 0.212E+00)
+ search vector abs. value=  0.178E-01
+ reached required accuracy - stopping structural energy minimisation
