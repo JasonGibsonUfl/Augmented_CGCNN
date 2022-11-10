@@ -5,7 +5,7 @@ This software package implements a data augmentation method to enable machine le
 The major function of the package is to augment the training and validation data used to train a machine learning model.
 
 The following paper describes the augmentation technique:
-[Data-Augmentation for Graph Neural Network Learning of the Relaxed Energies of Unrelaxed Structures](https://arxiv.org/abs/2202.13947)
+[Data-Augmentation for Graph Neural Network Learning of the Relaxed Energies of Unrelaxed Structures](https://www.nature.com/articles/s41524-022-00891-8)
 
 The software used to train the [CGCNN](https://github.com/txie-93/cgcnn) and the [CGCNN-HD](https://github.com/kaist-amsg/CGCNN-HD) are well documented in the respective respitory.
 
@@ -69,3 +69,21 @@ to make predictions on Test-relaxed and Test-unrelaxed, run:
 python predict.py
 ```
 This will print the prediction errors for the four models and write the predictions and target values to a csv file. The first column is the DFT value, the second column is the predicted value.
+
+## Paper
+
+Our paper can be found [here](https://www.nature.com/articles/s41524-022-00891-8)
+
+## Citation
+
+If you use the code in your work, please cite:
+
+```
+ @article{gibson_hire_hennig_2022, 
+ title={Data-augmentation for graph neural network learning of the relaxed energies of unrelaxed structures}, 
+ volume={8}, DOI={10.1038/s41524-022-00891-8}, 
+ number={1}, 
+ journal={npj Computational Materials}, 
+ author={Gibson, Jason and Hire, Ajinkya and Hennig, Richard G.}, 
+ year={2022}} 
+```
